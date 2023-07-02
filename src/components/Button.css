@@ -1,0 +1,11 @@
+.main-button {
+  background-color: #626CCC;
+  color: aliceblue;
+  padding: 18px 20px;
+  align-self: center;
+  border: none;
+  margin: 24px 0 48px 0;
+  border-radius: 4%;
+  font-size: larger;
+  font-weight: bold;
+}

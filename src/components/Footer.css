@@ -1,0 +1,13 @@
+.footer {
+  background-color: black;
+  color: #a39e9e;
+  padding: 24px;
+}
+.footer ul {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+.footer li {
+  list-style: none;
+}
