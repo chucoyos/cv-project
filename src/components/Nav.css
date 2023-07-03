@@ -20,6 +20,10 @@
 .nav-brand > span {
   font-weight: bold;
 }
+.nav-brand a {
+  text-decoration: none;
+  color: #ffffff;
+}
 h1 {
   text-align: center;
   font-size: 40px;

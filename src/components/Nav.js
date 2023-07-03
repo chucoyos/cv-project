@@ -1,10 +1,11 @@
 import Button from './Button'
 import './Nav.css'
+import { Link } from 'react-router-dom'
 const Nav = () => {
   return(
     <nav className='Nav'>
       <ul className='nav-list'>
-        <li className="nav-brand"><span>cv</span>project</li>
+        <li className="nav-brand"><Link to='/'><span>cv</span>project</Link></li>
         <li>Create Resume</li>
         <li>Resume Templates</li>
         <li>Blog</li>

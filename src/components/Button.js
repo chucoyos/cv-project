@@ -1,7 +1,8 @@
 import './Button.css'
+import { Link } from 'react-router-dom'
 const Button = () => {
   return(
-    <button className="main-button">Create your Resume</button>
+    <Link to='/general' className="main-button">Create your Resume</Link>
   )
 }
 export default Button

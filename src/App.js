@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 function App() {
   return (
     <>
-    <Nav />
     <DescriptionCard logo='🍎️'/>
     <DescriptionCard logo='🍄️'/>
     <DescriptionCard logo='🍓️'/>
