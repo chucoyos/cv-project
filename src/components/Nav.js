@@ -1,7 +1,8 @@
 import Button from './Button'
 import './Nav.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 const Nav = () => {
+  const location = useLocation()
   return(
     <nav className='Nav'>
       <ul className='nav-list'>
@@ -11,9 +12,13 @@ const Nav = () => {
         <li>Blog</li>
         <li>Contact</li>
       </ul>
-      <h1>Create your professional Resume with CV project</h1>
-      <p className='subtitle'>Create your own professional resume and download it</p>
-      <Button />
+      { location.pathname === '/' &&
+        <>
+          <h1>Create your professional Resume with CV project</h1>
+          <p className='subtitle'>Create your own professional resume and download it</p>
+          <Button /> 
+        </>
+      }
     </nav>
   )
 }
