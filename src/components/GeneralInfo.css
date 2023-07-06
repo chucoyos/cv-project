@@ -1,0 +1,64 @@
+.form-card {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 4px;
+  max-width: 80%;
+  padding: 32px;
+  box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+  -webkit-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+  -moz-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+}
+.section-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  border-top: .5px solid rgb(198, 193, 193);
+  padding: 16px 0;
+}
+.form-group .input-group {
+  margin-left: 24px;
+  width: auto;
+}
+.camera {
+  font-size: 50px;
+  align-self: center;
+  border: .1px solid lightgray;
+  cursor: pointer;
+  padding: 16px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+.input-duo > .input-group {
+  width: 47%;
+}
+.form-title {
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+.input-duo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.btn-group {
+  display: flex;
+  justify-content: end;
+  margin-top: 16px;
+}
+.btn-group button, input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+ 
+ 
+
+
+
+ 

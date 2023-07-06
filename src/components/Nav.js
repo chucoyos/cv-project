@@ -1,7 +1,7 @@
 import Button from './Button'
 import './Nav.css'
 import { Link, useLocation } from 'react-router-dom'
-const Nav = () => {
+const Nav = ({path, text}) => {
   const location = useLocation()
   return(
     <nav className='Nav'>
@@ -16,7 +16,7 @@ const Nav = () => {
         <>
           <h1>Create your professional Resume with CV project</h1>
           <p className='subtitle'>Create your own professional resume and download it</p>
-          <Button /> 
+          <Button path='/general' text='Create your Resume'/> 
         </> : <h2 className='subtitle'>Personal Details</h2>
       }
     </nav>
