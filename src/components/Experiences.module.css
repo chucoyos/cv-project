@@ -10,9 +10,9 @@
   width: 60%;
   border: none;
   border-radius: 4px;
-  box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
-  -webkit-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
-  -moz-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.35);
 }
 .cardHeader {
   align-self: self-start;
