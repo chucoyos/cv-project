@@ -1,6 +1,7 @@
 .card {
+  background-color: #fff;
   display: flex;
-  margin: 64px auto;
+  margin: 16px auto;
   padding: 32px;
   width: 60%;
   border: none;

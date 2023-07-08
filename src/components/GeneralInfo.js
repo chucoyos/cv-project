@@ -67,7 +67,7 @@ const GeneralInfo = ({name,
           
         </form>
       </div>
-      <Button text='Next step ﹥' path='/experiences'/>
+      <Button text='Next step ﹥' path='/cv-project/experiences'/>
     </div>
   )
 }

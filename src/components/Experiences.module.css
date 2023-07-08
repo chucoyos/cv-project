@@ -1,8 +1,9 @@
 .experiencesCard {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  margin: 64px auto;
+  margin: 32px auto;
   padding: 32px;
   width: 60%;
   border: none;

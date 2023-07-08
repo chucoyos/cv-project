@@ -6,19 +6,20 @@ const Nav = ({path, text}) => {
   return(
     <nav className='Nav'>
       <ul className='nav-list'>
-        <li className="nav-brand"><Link to='/'><span>cv</span>project</Link></li>
-        <li>Create Resume</li>
+        <li className="nav-brand"><Link to='/cv-project'><span>cv</span>project</Link></li>
+        <li><Link to='/cv-project/general'>Create Resume</Link></li>
         <li>Resume Templates</li>
         <li>Blog</li>
         <li>Contact</li>
       </ul>
-      { location.pathname === '/' ?
+      { location.pathname === '/cv-project' ?
         <>
           <h1>Create your professional Resume with CV project</h1>
           <p className='subtitle'>Create your own professional resume and download it</p>
-          <Button path='/general' text='Create your Resume'/> 
+          <Button path='/cv-project/general' text='Create your Resume'/> 
         </> : <h2 className='subtitle'>Personal Details</h2>
       }
+      
     </nav>
   )
 }

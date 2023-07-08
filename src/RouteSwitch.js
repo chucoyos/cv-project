@@ -4,10 +4,10 @@ import GeneralInfo from "./components/GeneralInfo"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Experiences from "./components/Experiences"
+import DecorationBar from "./components/DecorationBar"
 import { useState } from "react"
 const RouteSwitch = () => {
 
- 
   const [name, setName] = useState('')
   const [last, setLast] = useState('')
   const [email, setEmail] = useState('')
@@ -44,9 +44,10 @@ const RouteSwitch = () => {
   return(
     <BrowserRouter>
       <Nav />
+      <DecorationBar />
       <Routes>
-        <Route  path='/' element={<App />}/>
-        <Route  path='/general'
+        <Route  path='/cv-project' element={<App />}/>
+        <Route  path='/cv-project/general'
                 element={<GeneralInfo 
                 name={name}
                 last={last}
@@ -63,7 +64,7 @@ const RouteSwitch = () => {
                 handleZip={handleZip}
                 handleCity={handleCity}
               />}/>
-        <Route path='/experiences' element={<Experiences count={education.length}/>}/>
+        <Route path='/cv-project/experiences' element={<Experiences count={education.length}/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>
