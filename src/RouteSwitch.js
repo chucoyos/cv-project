@@ -16,6 +16,8 @@ const RouteSwitch = () => {
   const [zip, setZip] = useState('')
   const [city, setCity] = useState('')
 
+  const [education, setEducation] = useState([])
+
   const handleName = (e) => {
     setName(e.target.value)
   }
@@ -61,7 +63,7 @@ const RouteSwitch = () => {
                 handleZip={handleZip}
                 handleCity={handleCity}
               />}/>
-        <Route path='/experiences' element={<Experiences />}/>
+        <Route path='/experiences' element={<Experiences count={education.length}/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

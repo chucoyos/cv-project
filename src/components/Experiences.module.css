@@ -1,0 +1,90 @@
+.experiencesCard {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin: 64px auto;
+  padding: 32px;
+  width: 60%;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+  -webkit-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+  -moz-box-shadow: 0px 1px 17px 11px rgba(237,225,225,0.75);
+}
+.cardHeader {
+  align-self: self-start;
+}
+hr {
+  margin: 16px 0 16px 0;
+  border-top: 1px solid rgb(235, 231, 231);
+}
+.cardTitle {
+  font-size: medium;
+}
+.cardTitle > span {
+  background-color: blue;
+  border-radius: 50%;
+  padding: 1px 5px;
+  font-size: x-small;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  top: -14px;
+  left: 10px;
+}
+.inputDuo {
+  display: flex;
+  justify-content: space-between;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.inputDuo .inputGroup {
+  max-width: 49%;
+}
+.inputGroup > label {
+  text-align: start;
+  font-size: small;
+}
+.btnGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
+}
+.btnGroup button {
+  padding: 2px 10px;
+  font-size: xx-small;
+  background-color: #fff;
+  border: .1px solid #b9b4b4;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btnGroup button:hover {
+  text-decoration: underline;
+}
+.first {
+  margin-right: 16px;
+}
+.add {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.add:hover {
+  text-decoration: underline;
+}
+.add span{
+  position: relative;
+  right: 2px;
+  top: -2px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 1px 4px;
+  font-size: x-small;
+}
+ 

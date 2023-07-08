@@ -3,7 +3,6 @@
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  border-radius: 20% 0 20% 0;
 }
 .nav-list {
   display: flex;
