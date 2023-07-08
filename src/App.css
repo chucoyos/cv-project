@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+.cardContainer {
+  position: relative;
+  top: -200px;
+}

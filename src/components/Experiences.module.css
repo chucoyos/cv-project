@@ -1,4 +1,6 @@
 .experiencesCard {
+  position: relative;
+  top: -160px;
   background-color: #fff;
   display: flex;
   flex-direction: column;

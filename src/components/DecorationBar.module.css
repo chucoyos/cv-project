@@ -1,9 +1,8 @@
 .decorationBar {
-  /* background-color: #2DC46A; */
   background-color: #2DC46A;
-  height: 350px;
-  position: absolute;
-  top: -60px;
+  height: 200px;
+  position: relative;
+  top: -90px;
   right: 8px;
   rotate: -4deg;
   width: 150%;
