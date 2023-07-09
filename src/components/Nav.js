@@ -12,12 +12,26 @@ const Nav = ({path, text}) => {
         <li>Blog</li>
         <li>Contact</li>
       </ul>
-      { location.pathname === '/cv-project' ?
+      {  location.pathname === '/cv-project' &&
         <>
-          <h1>Create your professional Resume with CV project</h1>
-          <p className='subtitle'>Create your own professional resume and download it</p>
-          <Button path='/cv-project/general' text='Create your Resume'/> 
-        </> : <h2 className='subtitle'>Personal Details</h2>
+        <h1>Create your professional Resume with CV project</h1>
+        <p className='subtitle'>Create your own professional resume and download it</p>
+        <Button path='/cv-project/general' text='Create your Resume'/> 
+      </>
+      }
+
+      {  location.pathname === '/cv-project/general' &&
+        <>
+        <h2 className='subtitle'>Personal Details</h2>
+         
+        </>
+      }
+
+      {  location.pathname === '/cv-project/experiences' &&
+        <>
+        <h2 className='subtitle'>My experiences</h2>
+         
+        </>
       }
       
     </nav>

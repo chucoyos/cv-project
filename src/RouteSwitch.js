@@ -5,7 +5,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Experiences from "./components/Experiences"
 import DecorationBar from "./components/DecorationBar"
-import { useState } from "react"
+import { Children, useState } from "react"
 const RouteSwitch = () => {
 
   const [name, setName] = useState('')
@@ -43,7 +43,9 @@ const RouteSwitch = () => {
 
   return(
     <BrowserRouter>
-      <Nav />
+      <Nav>
+        
+      </Nav>
       <DecorationBar />
       <Routes>
         <Route  path='/cv-project' element={<App />}/>
