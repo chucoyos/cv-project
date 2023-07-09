@@ -12,16 +12,21 @@ const Experiences = ({name, last, count}) => {
             <div className={styles.inputDuo}>
               <div className={styles.inputGroup}>
                 <label>Degree</label>
-                <input type='text' />
+                <input type='text'
+                       placeholder='e.g. Bachelor of Science'/>
               </div>
               <div className={styles.inputGroup}>
                 <label>City/Town</label>
-                <input type='text' />
+                <input type='text'
+                       placeholder='e.g. San Francisco' 
+                      />
               </div>
             </div>
             <div className={styles.inputGroup}>
                 <label>School</label>
-                <input type='text' />
+                <input type='text'
+                        placeholder='e.g. New York University' 
+                      />
             </div>
             <div className={styles.inputDuo}>
               <div className={styles.inputGroup}>
