@@ -5,7 +5,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Experiences from "./components/Experiences"
 import DecorationBar from "./components/DecorationBar"
-import { Children, useState } from "react"
+import { useState } from "react"
 const RouteSwitch = () => {
 
   const [generalInfo, setGeneralInfo] = useState({
@@ -62,6 +62,9 @@ const RouteSwitch = () => {
     setStartDate('')
     setEndDate('')
     setDescription('')
+    // set display to none to div id='education'
+    const educationDiv = document.getElementById('educationForm')
+    educationDiv.style.display = 'none'
   }
   return(
     <BrowserRouter>

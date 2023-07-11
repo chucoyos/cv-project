@@ -16,14 +16,28 @@ const Experiences = ({education,
   handleDescription
 
 }) => {
+
+  const showForm = () => {
+    const educationDiv = document.getElementById('educationForm')
+    educationDiv.style.display = 'block'
+  }
+
+  const toggleCard = () => {
+    const toggleDiv = document.getElementById('cardBody')
+    const showCard = toggleDiv.style.display === 'none' ? 'block' : 'none'
+    toggleDiv.style.display = showCard
+  }
   return (
     <div className='App'>
       <div className={styles.experiencesCard}>
-        <div className={styles.cardHeader}>
+        <div className={styles.cardHeader} onClick={toggleCard}>
           <h3 className={styles.cardTitle}><span>{count}</span>🎓️ Education and Qualifications</h3>
         </div>
+
+        {/* dropDown start here */}
+        <div id='cardBody'>
+        <div className={styles.dropDown} id='educationForm'>
           <hr />
-        <div className={styles.dropDown}>
           <form onSubmit={onEducationSubmit}>
             <div className={styles.inputDuo}>
               <div className={styles.inputGroup}>
@@ -78,10 +92,11 @@ const Experiences = ({education,
               <button className={styles.first}>🗑️ Delete</button>
               <button>💾️ Save</button>
             </div>
-            <button className={styles.add}><span>+</span>Add another education</button>
           </form>
+        </div>  {/* end div id= educationForm */}
+        <button className={styles.add} onClick={showForm}><span>+</span>Add another education</button>
         </div>
-  
+        {/* end dropDown div here */}
       </div>
     </div>
   );
