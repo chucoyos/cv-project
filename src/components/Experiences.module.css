@@ -16,6 +16,10 @@
 }
 .cardHeader {
   align-self: self-start;
+  margin-bottom: 16px;
+}
+.cardHeader:hover {
+  text-decoration: underline;
 }
 hr {
   margin: 16px 0 16px 0;
@@ -34,6 +38,9 @@ hr {
   position: relative;
   top: -14px;
   left: 10px;
+}
+.cardBody {
+  display: none;
 }
 .inputDuo {
   display: flex;
@@ -89,5 +96,14 @@ hr {
   border-radius: 50%;
   padding: 1px 4px;
   font-size: x-small;
+}
+.educationList .inputGroup {
+  align-items: start;
+}
+.educationList ul {
+  padding-left: 0;
+}
+.educationList li{
+  list-style-type: none;
 }
  

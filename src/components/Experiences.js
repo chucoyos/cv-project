@@ -24,18 +24,41 @@ const Experiences = ({education,
 
   const toggleCard = () => {
     const toggleDiv = document.getElementById('cardBody')
-    const showCard = toggleDiv.style.display === 'none' ? 'block' : 'none'
+    const showCard = toggleDiv.style.display === 'block' ? 'none' : 'block'
     toggleDiv.style.display = showCard
   }
+
   return (
     <div className='App'>
       <div className={styles.experiencesCard}>
         <div className={styles.cardHeader} onClick={toggleCard}>
           <h3 className={styles.cardTitle}><span>{count}</span>🎓️ Education and Qualifications</h3>
         </div>
+        <div className={styles.educationList}
+              id='education'
+              style={{display: 'block'}}
+        >
+          <ul>
+            {
+             education.map((edu) => 
+             <li key={Math.random()}>
+              <hr />
+              <div className={styles.inputDuo}>
+                <div className={styles.inputGroup}>
+                  <h3>{edu.degree}</h3>
+                  <p>{edu.startDate} {edu.endDate}</p>
+                </div>
+                <p>🗑️</p>
+                <p>✏️</p>
+              </div>
+             </li>
+             )
+            }
+          </ul>
+        </div>
 
         {/* dropDown start here */}
-        <div id='cardBody'>
+        <div id='cardBody' className={styles.cardBody}>
         <div className={styles.dropDown} id='educationForm'>
           <hr />
           <form onSubmit={onEducationSubmit}>
