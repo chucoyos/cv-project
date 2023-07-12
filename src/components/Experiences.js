@@ -46,10 +46,12 @@ const Experiences = ({education,
               <div className={styles.inputDuo}>
                 <div className={styles.inputGroup}>
                   <h3>{edu.degree}</h3>
-                  <p>{edu.startDate} {edu.endDate}</p>
+                  <p>{edu.startDate} / {edu.endDate}</p>
                 </div>
-                <p>🗑️</p>
-                <p>✏️</p>
+                <div className={styles.editList}>
+                  <p>🗑️</p>
+                  <p>✏️</p>
+                </div>
               </div>
              </li>
              )

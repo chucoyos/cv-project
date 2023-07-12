@@ -51,6 +51,9 @@ hr {
   flex-direction: column;
   flex: 1;
 }
+.inputDuo p {
+  justify-self: center;
+}
 .inputDuo .inputGroup {
   max-width: 49%;
 }
@@ -105,5 +108,11 @@ hr {
 }
 .educationList li{
   list-style-type: none;
+}
+.editList {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
 }
  
