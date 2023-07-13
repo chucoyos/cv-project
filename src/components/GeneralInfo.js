@@ -7,7 +7,7 @@ const GeneralInfo = ({generalInfo, setGeneralInfo}) => {
         <p className='form-title'>Personal details</p>
         <form>
           <div className='form-group'>
-            <p className="camera">📷️</p>
+            <p className="camera">📷️ <span className='optional'>optional</span></p>
             <div className='section-group'>
               <div className="input-group">
                 <label htmlFor='first'>Name</label>

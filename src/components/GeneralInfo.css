@@ -27,11 +27,17 @@
   width: auto;
 }
 .camera {
-  font-size: 50px;
+  font-size: 38px;
   align-self: center;
-  border: .1px solid lightgray;
+  border: 2px dotted gray;
   cursor: pointer;
-  padding: 16px;
+  padding: 16px 8px 0 16px;
+  background-color: rgb(238, 234, 234);
+  text-align: center;
+}
+.camera > span {
+  font-size: 16px;
+  color: rgb(144, 140, 140);
 }
 .input-group {
   display: flex;

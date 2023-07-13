@@ -71,6 +71,7 @@ const Experiences = ({education,
                        placeholder='e.g. Bachelor of Science'
                        value={degree}
                        onChange={handleDegree}
+                       required
                 />
               </div>
               <div className={styles.inputGroup}>
