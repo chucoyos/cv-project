@@ -1,6 +1,7 @@
 import styles from './Experiences.module.css'
 const Experiences = ({education, 
-  onEducationSubmit, 
+  onEducationSubmit,
+  onEducationDelete,
   count,
   degree,
   handleDegree,
@@ -32,7 +33,9 @@ const Experiences = ({education,
     <div className='App'>
       <div className={styles.experiencesCard}>
         <div className={styles.cardHeader} onClick={toggleCard}>
-          <h3 className={styles.cardTitle}><span>{count}</span>🎓️ Education and Qualifications</h3>
+          <h3 className={styles.cardTitle}>
+            {count > 0 &&<span>{count}</span>}
+            🎓️ Education and Qualifications</h3>
         </div>
         <div className={styles.educationList}
               id='education'
@@ -41,7 +44,7 @@ const Experiences = ({education,
           <ul>
             {
              education.map((edu) => 
-             <li key={Math.random()}>
+             <li key={edu.id}>
               <hr />
               <div className={styles.inputDuo}>
                 <div className={styles.inputGroup}>
@@ -49,8 +52,8 @@ const Experiences = ({education,
                   <p>{edu.startDate} / {edu.endDate}</p>
                 </div>
                 <div className={styles.editList}>
-                  <p>🗑️</p>
-                  <p>✏️</p>
+                  <button onClick={() =>{onEducationDelete(edu.id)}}>🗑️</button>
+                  <button>✏️</button>
                 </div>
               </div>
              </li>
@@ -63,11 +66,13 @@ const Experiences = ({education,
         <div id='cardBody' className={styles.cardBody}>
         <div className={styles.dropDown} id='educationForm'>
           <hr />
+
           <form onSubmit={onEducationSubmit}>
             <div className={styles.inputDuo}>
               <div className={styles.inputGroup}>
                 <label>Degree</label>
                 <input type='text'
+                       name='degree'
                        placeholder='e.g. Bachelor of Science'
                        value={degree}
                        onChange={handleDegree}
@@ -80,6 +85,7 @@ const Experiences = ({education,
                        placeholder='e.g. San Francisco'
                        value={city}
                        onChange={handleCity}
+                       required
                       />
               </div>
             </div>
@@ -89,6 +95,7 @@ const Experiences = ({education,
                        placeholder='e.g. New York University'
                        value={school}
                        onChange={handleSchool}
+                       required
                 />
             </div>
             <div className={styles.inputDuo}>
@@ -97,6 +104,7 @@ const Experiences = ({education,
                 <input type='date'
                        value={startDate}
                        onChange={handleStartDate}
+                       required
                 />
               </div>
               <div className={styles.inputGroup}>
@@ -104,6 +112,7 @@ const Experiences = ({education,
                 <input type='date'
                       value={endDate}
                       onChange={handleEndDate}
+                      required
               />
               </div>
             </div>
@@ -115,8 +124,8 @@ const Experiences = ({education,
               />
             </div>
             <div className={styles.btnGroup}>
-              <button className={styles.first}>🗑️ Delete</button>
-              <button>💾️ Save</button>
+              <button className={styles.first} type='button'>🗑️ Delete</button>
+              <button type='submit'>💾️ Save</button>
             </div>
           </form>
         </div>  {/* end div id= educationForm */}

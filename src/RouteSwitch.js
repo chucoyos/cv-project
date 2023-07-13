@@ -6,6 +6,8 @@ import Footer from "./components/Footer"
 import Experiences from "./components/Experiences"
 import DecorationBar from "./components/DecorationBar"
 import { useState } from "react"
+import uniqid from 'uniqid'
+
 const RouteSwitch = () => {
 
   const [generalInfo, setGeneralInfo] = useState({
@@ -54,7 +56,8 @@ const RouteSwitch = () => {
       school: school,
       startDate: startDate,
       endDate: endDate,
-      description: description
+      description: description,
+      id: uniqid()
     }])
     setDegree('')
     setCity('')
@@ -65,6 +68,10 @@ const RouteSwitch = () => {
     // set display to none to div id='education'
     const educationDiv = document.getElementById('educationForm')
     educationDiv.style.display = 'none'
+  }
+
+  const onEducationDelete = (id) => {
+    setEducation(education.filter((edu) => edu.id !== id))
   }
   return(
     <BrowserRouter>
@@ -94,6 +101,7 @@ const RouteSwitch = () => {
                 handleDescription={handleDescription}
                 education={education}
                 onEducationSubmit={onEducationSubmit}
+                onEducationDelete={onEducationDelete}
                 />}
               />
       </Routes>
