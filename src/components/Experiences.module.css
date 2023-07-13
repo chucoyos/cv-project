@@ -111,9 +111,8 @@ hr {
 }
 .editList {
   display: flex;
-  flex: 1;
-  justify-content: space-between;
   align-items: center;
+  gap: 32px;
 }
 .editList button {
   border: none;
