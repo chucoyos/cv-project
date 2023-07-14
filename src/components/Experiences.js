@@ -4,23 +4,31 @@ const Experiences = ({education,
   onEducationDelete,
   count,
   degree,
+  setDegree,
   handleDegree,
   city,
+  setCity,
   handleCity,
   school,
+  setSchool,
   handleSchool,
   startDate,
+  setStartDate,
   handleStartDate,
   endDate,
+  setEndDate,
   handleEndDate,
   description,
-  handleDescription
+  setDescription,
+  handleDescription,
+  onEducationEdit
 
 }) => {
 
-  const showForm = () => {
+  const toggleForm = () => {
     const educationDiv = document.getElementById('educationForm')
-    educationDiv.style.display = 'block'
+    const toggleForm = educationDiv.style.display === 'block' ? 'none' : 'block'
+    educationDiv.style.display = toggleForm
   }
 
   const toggleCard = () => {
@@ -53,7 +61,7 @@ const Experiences = ({education,
                 </div>
                 <div className={styles.editList}>
                   <button onClick={() =>{onEducationDelete(edu.id)}}>🗑️</button>
-                  <button>✏️</button>
+                  <button onClick={() => {onEducationEdit(edu.id); toggleForm()}}>✏️</button>
                 </div>
               </div>
              </li>
@@ -124,12 +132,20 @@ const Experiences = ({education,
               />
             </div>
             <div className={styles.btnGroup}>
-              <button className={styles.first} type='button'>🗑️ Delete</button>
+              <button className={styles.first} type='button' onClick={() => {
+                setDegree('')
+                setCity('')
+                setSchool('')
+                setStartDate('')
+                setEndDate('')
+                setDescription('')
+                toggleForm()
+              }}>🗑️ Delete</button>
               <button type='submit'>💾️ Save</button>
             </div>
           </form>
         </div>  {/* end div id= educationForm */}
-        <button className={styles.add} onClick={showForm}><span>+</span>Add another education</button>
+        <button className={styles.add} onClick={toggleForm}><span>+</span>Add another education</button>
         </div>
         {/* end dropDown div here */}
       </div>

@@ -65,13 +65,22 @@ const RouteSwitch = () => {
     setStartDate('')
     setEndDate('')
     setDescription('')
-    // set display to none to div id='education'
     const educationDiv = document.getElementById('educationForm')
     educationDiv.style.display = 'none'
   }
 
   const onEducationDelete = (id) => {
     setEducation(education.filter((edu) => edu.id !== id))
+  }
+  const onEducationEdit = (id) => {
+    const edu = education.find((edu) => edu.id === id)
+    setDegree(edu.degree)
+    setCity(edu.city)
+    setSchool(edu.school)
+    setStartDate(edu.startDate)
+    setEndDate(edu.endDate)
+    setDescription(edu.description)
+    onEducationDelete(id)
   }
   return(
     <BrowserRouter>
@@ -102,6 +111,13 @@ const RouteSwitch = () => {
                 education={education}
                 onEducationSubmit={onEducationSubmit}
                 onEducationDelete={onEducationDelete}
+                onEducationEdit={onEducationEdit}
+                setDegree={setDegree}
+                setCity={setCity}
+                setSchool={setSchool}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+                setDescription={setDescription}
                 />}
               />
       </Routes>
