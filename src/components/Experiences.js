@@ -1,57 +1,25 @@
 import styles from './Experiences.module.css'
-const Experiences = ({education, 
-  onEducationSubmit,
-  onEducationDelete,
-  count,
-  degree,
-  setDegree,
-  handleDegree,
-  city,
-  setCity,
-  handleCity,
-  school,
-  setSchool,
-  handleSchool,
-  startDate,
-  setStartDate,
-  handleStartDate,
-  endDate,
-  setEndDate,
-  handleEndDate,
-  description,
-  setDescription,
-  handleDescription,
-  onEducationEdit
+import ExperienceCard from './ExperienceCard'
 
-}) => {
-
+const Experiences = (props) => {
   const toggleForm = () => {
     const educationDiv = document.getElementById('educationForm')
     const toggleForm = educationDiv.style.display === 'block' ? 'none' : 'block'
     educationDiv.style.display = toggleForm
   }
 
-  const toggleCard = () => {
-    const toggleDiv = document.getElementById('cardBody')
-    const showCard = toggleDiv.style.display === 'block' ? 'none' : 'block'
-    toggleDiv.style.display = showCard
-  }
-
-  return (
+  return(
     <div className='App'>
-      <div className={styles.experiencesCard}>
-        <div className={styles.cardHeader} onClick={toggleCard}>
-          <h3 className={styles.cardTitle}>
-            {count > 0 &&<span>{count}</span>}
-            🎓️ Education and Qualifications</h3>
-        </div>
+      <ExperienceCard 
+        count={props.education.length}
+        cardTitle={'Education and Qualifications'}
+        >
         <div className={styles.educationList}
               id='education'
-              style={{display: 'block'}}
-        >
+              style={{display: 'block'}}>
           <ul>
             {
-             education.map((edu) => 
+             props.education.map((edu) => 
              <li key={edu.id}>
               <hr />
               <div className={styles.inputDuo}>
@@ -60,30 +28,29 @@ const Experiences = ({education,
                   <p>{edu.startDate} / {edu.endDate}</p>
                 </div>
                 <div className={styles.editList}>
-                  <button onClick={() =>{onEducationDelete(edu.id)}}>🗑️</button>
-                  <button onClick={() => {onEducationEdit(edu.id); toggleForm()}}>✏️</button>
+                  <button onClick={() =>{props.onEducationDelete(edu.id)}}>🗑️</button>
+                  <button onClick={() => {props.onEducationEdit(edu.id); toggleForm()}}>✏️</button>
                 </div>
               </div>
              </li>
              )
             }
           </ul>
-        </div>
 
-        {/* dropDown start here */}
+          {/* dropDown start here */}
         <div id='cardBody' className={styles.cardBody}>
         <div className={styles.dropDown} id='educationForm'>
           <hr />
 
-          <form onSubmit={onEducationSubmit}>
+          <form onSubmit={props.onEducationSubmit}>
             <div className={styles.inputDuo}>
               <div className={styles.inputGroup}>
                 <label>Degree</label>
                 <input type='text'
                        name='degree'
                        placeholder='e.g. Bachelor of Science'
-                       value={degree}
-                       onChange={handleDegree}
+                       value={props.degree}
+                       onChange={props.handleDegree}
                        required
                 />
               </div>
@@ -91,8 +58,8 @@ const Experiences = ({education,
                 <label>City/Town</label>
                 <input type='text'
                        placeholder='e.g. San Francisco'
-                       value={city}
-                       onChange={handleCity}
+                       value={props.city}
+                       onChange={props.handleCity}
                        required
                       />
               </div>
@@ -101,8 +68,8 @@ const Experiences = ({education,
                 <label>School</label>
                 <input type='text'
                        placeholder='e.g. New York University'
-                       value={school}
-                       onChange={handleSchool}
+                       value={props.school}
+                       onChange={props.handleSchool}
                        required
                 />
             </div>
@@ -110,16 +77,16 @@ const Experiences = ({education,
               <div className={styles.inputGroup}>
                 <label>Start Date</label>
                 <input type='date'
-                       value={startDate}
-                       onChange={handleStartDate}
+                       value={props.startDate}
+                       onChange={props.handleStartDate}
                        required
                 />
               </div>
               <div className={styles.inputGroup}>
                 <label>End Date</label>
                 <input type='date'
-                      value={endDate}
-                      onChange={handleEndDate}
+                      value={props.endDate}
+                      onChange={props.handleEndDate}
                       required
               />
               </div>
@@ -127,18 +94,18 @@ const Experiences = ({education,
             <div className={styles.inputGroup}>
               <label>Description</label>
               <textarea 
-                value={description}
-                onChange={handleDescription}
+                value={props.description}
+                onChange={props.handleDescription}
               />
             </div>
             <div className={styles.btnGroup}>
               <button className={styles.first} type='button' onClick={() => {
-                setDegree('')
-                setCity('')
-                setSchool('')
-                setStartDate('')
-                setEndDate('')
-                setDescription('')
+                props.setDegree('')
+                props.setCity('')
+                props.setSchool('')
+                props.setStartDate('')
+                props.setEndDate('')
+                props.setDescription('')
                 toggleForm()
               }}>🗑️ Delete</button>
               <button type='submit'>💾️ Save</button>
@@ -148,9 +115,13 @@ const Experiences = ({education,
         <button className={styles.add} onClick={toggleForm}><span>+</span>Add another education</button>
         </div>
         {/* end dropDown div here */}
-      </div>
+
+
+        </div>
+        
+      </ExperienceCard>
     </div>
-  );
+  )
 }
 
 export default Experiences

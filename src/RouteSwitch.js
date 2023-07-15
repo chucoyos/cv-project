@@ -21,7 +21,9 @@ const RouteSwitch = () => {
   })
  
 
-  const [education, setEducation] = useState([])
+  const [education, setEducation] = useState([
+    // {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
+  ])
 
   const [degree, setDegree] = useState('')
   const [city, setCity] = useState('')
@@ -95,7 +97,6 @@ const RouteSwitch = () => {
                 />
               }/>
         <Route  path='/cv-project/experiences' element={<Experiences 
-                count={education.length}
                 degree={degree}
                 handleDegree={handleDegree}
                 city={city}
