@@ -22,7 +22,10 @@ const RouteSwitch = () => {
  
 
   const [education, setEducation] = useState([
-    // {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
+    {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
+  ])
+  const [interests, setInterests] = useState([
+    {interest: 'Coding', id: uniqid()}, {interest: 'Reading', id: uniqid()}
   ])
 
   const [degree, setDegree] = useState('')
@@ -119,6 +122,8 @@ const RouteSwitch = () => {
                 setStartDate={setStartDate}
                 setEndDate={setEndDate}
                 setDescription={setDescription}
+                interests={interests}
+                setInterests={setInterests}
                 />}
               />
       </Routes>
