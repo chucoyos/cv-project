@@ -3,6 +3,12 @@ import ExperienceCard from './ExperienceCard'
 
 const Experiences = (props) => {
 
+  const toggleForm = () => {
+    const educationDiv = document.getElementById('educationForm')
+    const toggleForm = educationDiv.style.display === 'block' ? 'none' : 'block'
+    educationDiv.style.display = toggleForm
+  }
+
   const educationList = 
     props.education.map((edu) => 
     <li key={edu.id}>
@@ -14,7 +20,7 @@ const Experiences = (props) => {
        </div>
        <div className={styles.editList}>
          <button onClick={() =>{props.onEducationDelete(edu.id)}}>🗑️</button>
-         <button onClick={() => {props.onEducationEdit(edu.id); props.toggleForm()}}>✏️</button>
+         <button onClick={() => {props.onEducationEdit(edu.id); toggleForm()}}>✏️</button>
        </div>
      </div>
     </li>
@@ -29,7 +35,7 @@ const Experiences = (props) => {
         </div>
         <div className={styles.editList}>
           <button onClick={() =>{props.onInterestDelete(interest.id)}}>🗑️</button>
-          <button onClick={() => {props.onInterestEdit(interest.id); props.toggleForm()}}>✏️</button>
+          <button onClick={() => {props.onInterestEdit(interest.id); toggleForm()}}>✏️</button>
         </div>
       </div>
     </li>
@@ -65,7 +71,7 @@ const Experiences = (props) => {
         count={props.education.length}
         list={educationList}
         experienceName='education'
-        toggleForm={props.toggleForm}
+        toggleForm={toggleForm}
         toggleCard={props.toggleCard}
       >
         

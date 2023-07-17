@@ -1,11 +1,7 @@
 import styles from './Experiences.module.css'
 const ExperienceCard = (props) => {
   
-  const toggleForm = () => {
-    const educationDiv = document.getElementById('educationForm')
-    const toggleForm = educationDiv.style.display === 'block' ? 'none' : 'block'
-    educationDiv.style.display = toggleForm
-  }
+  
 
   const toggleCard = () => {
     const toggleDiv = document.getElementById('cardBody')
@@ -102,13 +98,13 @@ const ExperienceCard = (props) => {
                 props.setStartDate('')
                 props.setEndDate('')
                 props.setDescription('')
-                toggleForm()
+                props.toggleForm()
               }}>🗑️ Delete</button>
               <button type='submit'>💾️ Save</button>
             </div>
           </form>
         </div>  {/* end div id= educationForm */}
-        <button className={styles.add} onClick={toggleForm}><span>+</span>Add another {props.experienceName}</button>
+        <button className={styles.add} onClick={props.toggleForm}><span>+</span>Add another {props.experienceName}</button>
         </div>
 
         {/* End Card body */}
