@@ -160,6 +160,7 @@ const Experiences = (props) => {
         list={interestsList}
         toggleForm={toggleForm}
         divId='interestsCard'
+        experienceName='interest'
       >
 
       </ExperienceCard>
