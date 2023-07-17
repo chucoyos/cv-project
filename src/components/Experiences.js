@@ -9,8 +9,7 @@ const Experiences = (props) => {
     educationDiv.style.display = toggleForm
   }
 
-  const educationList = 
-    props.education.map((edu) => 
+  const educationList = props.education.map((edu) => 
     <li key={edu.id}>
      <hr />
      <div className={styles.inputDuo}>
@@ -71,8 +70,9 @@ const Experiences = (props) => {
         count={props.education.length}
         list={educationList}
         experienceName='education'
+        cardBody='educationCardBody'
         toggleForm={toggleForm}
-        toggleCard={props.toggleCard}
+        divId='educationCard'
       >
         
          
@@ -87,7 +87,8 @@ const Experiences = (props) => {
         education={props.education}
         count={props.interests.length}
         list={interestsList}
-        
+        toggleForm={toggleForm}
+        divId='interestsCard'
       >
 
       </ExperienceCard>

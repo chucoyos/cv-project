@@ -87,6 +87,7 @@ const RouteSwitch = () => {
     setDescription(edu.description)
     onEducationDelete(id)
   }
+
   return(
     <BrowserRouter>
       <Nav />

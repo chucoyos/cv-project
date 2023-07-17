@@ -1,12 +1,9 @@
 import styles from './Experiences.module.css'
 const ExperienceCard = (props) => {
-  
-  
-
   const toggleCard = () => {
-    const toggleDiv = document.getElementById('cardBody')
-    const showCard = toggleDiv.style.display === 'block' ? 'none' : 'block'
-    toggleDiv.style.display = showCard
+    const toggleCard = document.getElementById(props.divId)
+    const cardStyle = toggleCard.style.display === 'block' ? 'none' : 'block'
+    toggleCard.style.display = cardStyle
   }
   
   return(
@@ -30,7 +27,11 @@ const ExperienceCard = (props) => {
 
         {/* End experience list */}
         {/* Start Card body */}
-        <div id='cardBody' className={styles.cardBody}>
+
+
+
+
+        <div id={props.divId} className={styles.cardBody}>
         <div className={styles.dropDown} id='educationForm'>
           <hr />
 
@@ -109,7 +110,6 @@ const ExperienceCard = (props) => {
 
         {/* End Card body */}
 
-        {props.children}   
     </div>
   ) 
 }
