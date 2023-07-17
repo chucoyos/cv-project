@@ -40,6 +40,76 @@ const Experiences = (props) => {
     </li>
     )
 
+    const educationForm = <form onSubmit={props.onEducationSubmit}>
+            <div className={styles.inputDuo}>
+              <div className={styles.inputGroup}>
+                <label>Degree</label>
+                <input type='text'
+                       name='degree'
+                       placeholder='e.g. Bachelor of Science'
+                       value={props.degree}
+                       onChange={props.handleDegree}
+                       required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>City/Town</label>
+                <input type='text'
+                       placeholder='e.g. San Francisco'
+                       value={props.city}
+                       onChange={props.handleCity}
+                       required
+                      />
+              </div>
+            </div>
+            <div className={styles.inputGroup}>
+                <label>School</label>
+                <input type='text'
+                       placeholder='e.g. New York University'
+                       value={props.school}
+                       onChange={props.handleSchool}
+                       required
+                />
+            </div>
+            <div className={styles.inputDuo}>
+              <div className={styles.inputGroup}>
+                <label>Start Date</label>
+                <input type='date'
+                       value={props.startDate}
+                       onChange={props.handleStartDate}
+                       required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>End Date</label>
+                <input type='date'
+                      value={props.endDate}
+                      onChange={props.handleEndDate}
+                      required
+              />
+              </div>
+            </div>
+            <div className={styles.inputGroup}>
+              <label>Description</label>
+              <textarea 
+                value={props.description}
+                onChange={props.handleDescription}
+              />
+            </div>
+            <div className={styles.btnGroup}>
+              <button className={styles.first} type='button' onClick={() => {
+                props.setDegree('')
+                props.setCity('')
+                props.setSchool('')
+                props.setStartDate('')
+                props.setEndDate('')
+                props.setDescription('')
+                props.toggleForm()
+              }}>🗑️ Delete</button>
+              <button type='submit'>💾️ Save</button>
+            </div>
+          </form>
+
   return(
     <div className='App'>
       {/* Education card */}
@@ -73,6 +143,7 @@ const Experiences = (props) => {
         cardBody='educationCardBody'
         toggleForm={toggleForm}
         divId='educationCard'
+        form={educationForm}
       >
         
          
