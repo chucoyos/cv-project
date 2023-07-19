@@ -10,24 +10,31 @@ import uniqid from 'uniqid'
 
 const RouteSwitch = () => {
 
-  const [generalInfo, setGeneralInfo] = useState({
-    name: '',
-    last: '',
-    email: '',
-    phone: '',
-    address: '',
-    zip: '',
-    city: ''
-  })
- 
-
-  const [education, setEducation] = useState([
-    // {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
-  ])
-  const [interests, setInterests] = useState([
-    // {interest: 'Coding', id: uniqid()}, {interest: 'Reading', id: uniqid()}
-  ])
+  const [generalInfo, setGeneralInfo] = useState({})
+  const [education, setEducation] = useState([])
+  const [interests, setInterests] = useState([])
   const [interest, setInterest] = useState('')
+  const [degree, setDegree] = useState('')
+  const [city, setCity] = useState('')
+  const [school, setSchool] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [description, setDescription] = useState('')
+  const [workExperience, setWorkExperience] = useState([{
+    jobTitle: 'Software Engineer',
+    companyCity: 'San Francisco, CA',
+    company: 'Google',
+    workStartDate: '2019-01-01',
+    workEndDate: '2021-01-01',
+    workDescription: 'I worked as a software engineer at Google for 2 years.',
+    id: uniqid()
+  }])
+  const [jobTitle, setJobTitle] = useState('')
+  const [companyCity, setCompanyCity] = useState('')
+  const [company, setCompany] = useState('')
+  const [workStartDate, setWorkStartDate] = useState('')
+  const [workEndDate, setWorkEndDate] = useState('')
+  const [workDescription, setWorkDescription] = useState('')
 
   const handleInterest = (e) => {
     setInterest(e.target.value)
@@ -39,14 +46,6 @@ const RouteSwitch = () => {
     const interestDiv = document.getElementById('interestForm')
     interestDiv.style.display = 'none'
   }
-
-  const [degree, setDegree] = useState('')
-  const [city, setCity] = useState('')
-  const [school, setSchool] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const [description, setDescription] = useState('')
-
   const handleDegree = (e) => {
     setDegree(e.target.value)
   }
@@ -108,6 +107,57 @@ const RouteSwitch = () => {
     setInterest(interest.interest)
     onInterestDelete(id)
   }
+  const onWorkExperienceDelete = (id) => {
+    setWorkExperience(workExperience.filter((work) => work.id !== id))
+  }
+  const onWorkExperienceEdit = (id) => {
+    const work = workExperience.find((work) => work.id === id)
+    setJobTitle(work.jobTitle)
+    setCompanyCity(work.companyCity)
+    setCompany(work.company)
+    setWorkStartDate(work.workStartDate)
+    setWorkEndDate(work.workEndDate)
+    setWorkDescription(work.workDescription)
+    onWorkExperienceDelete(id)
+  }
+  const handleJobTitle = (e) => {
+    setJobTitle(e.target.value)
+  }
+  const handleCompanyCity = (e) => {
+    setCompanyCity(e.target.value)
+  }
+  const handleCompany = (e) => {
+    setCompany(e.target.value)
+  }
+  const handleWorkStartDate = (e) => {
+    setWorkStartDate(e.target.value)
+  }
+  const handleWorkEndDate = (e) => {
+    setWorkEndDate(e.target.value)
+  }
+  const handleWorkDescription = (e) => {
+    setWorkDescription(e.target.value)
+  }
+  const onWorkExperienceSubmit = (e) => {
+    e.preventDefault()
+    setWorkExperience([...workExperience, {
+      jobTitle: jobTitle,
+      companyCity: companyCity,
+      company: company,
+      workStartDate: workStartDate,
+      workEndDate: workEndDate,
+      workDescription: workDescription,
+      id: uniqid()
+    }])
+    setJobTitle('')
+    setCompanyCity('')
+    setCompany('')
+    setWorkStartDate('')
+    setWorkEndDate('')
+    setWorkDescription('')
+    const workDiv = document.getElementById('workExperienceForm')
+    workDiv.style.display = 'none'
+  }
 
   return(
     <BrowserRouter>
@@ -151,6 +201,28 @@ const RouteSwitch = () => {
                 onInterestSubmit={onInterestSubmit}
                 onInterestDelete={onInterestDelete}
                 onInterestEdit={onInterestEdit}
+                workExperience={workExperience}
+                onWorkExperienceDelete={onWorkExperienceDelete}
+                jobTitle={jobTitle}
+                handleJobTitle={handleJobTitle}
+                companyCity={companyCity}
+                company={company}
+                workStartDate={workStartDate}
+                workEndDate={workEndDate}
+                workDescription={workDescription}
+                onWorkExperienceEdit={onWorkExperienceEdit}
+                onWorkExperienceSubmit={onWorkExperienceSubmit}
+                handleCompanyCity={handleCompanyCity}
+                handleCompany={handleCompany}
+                handleWorkStartDate={handleWorkStartDate}
+                handleWorkEndDate={handleWorkEndDate}
+                handleWorkDescription={handleWorkDescription}
+                setJobTitle={setJobTitle}
+                setCompanyCity={setCompanyCity}
+                setCompany={setCompany}
+                setWorkStartDate={setWorkStartDate}
+                setWorkEndDate={setWorkEndDate}
+                setWorkDescription={setWorkDescription}
                 />}
               />
       </Routes>
