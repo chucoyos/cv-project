@@ -5,6 +5,12 @@ const ExperienceCard = (props) => {
     const cardStyle = toggleCard.style.display === 'block' ? 'none' : 'block'
     toggleCard.style.display = cardStyle
   }
+
+  const toggleForm = () => {
+    const formContainer = document.getElementById(props.formId)
+    const toggleStyle = formContainer.style.display === 'block' ? 'none' : 'block'
+    formContainer.style.display = toggleStyle
+  }
   
   return(
     <div className={styles.experiencesCard}>
@@ -32,13 +38,13 @@ const ExperienceCard = (props) => {
 
 
         <div id={props.divId} className={styles.cardBody}>
-        <div className={styles.dropDown} id='educationForm'>
+        <div className={styles.dropDown} id={props.formId}>
           <hr />
           {/* Form goes here */}
           {props.form}
           
         </div>  {/* end div id= educationForm */}
-        <button className={styles.add} onClick={props.toggleForm}><span>+</span>Add another {props.experienceName}</button>
+        <button className={styles.add} onClick={toggleForm}><span>+</span>Add another {props.experienceName}</button>
         </div>
 
         {/* End Card body */}

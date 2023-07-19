@@ -22,11 +22,23 @@ const RouteSwitch = () => {
  
 
   const [education, setEducation] = useState([
-    {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
+    // {degree: 'Bachelor of Science', startDate: '01/02/2023', id: uniqid()}
   ])
   const [interests, setInterests] = useState([
-    {interest: 'Coding', id: uniqid()}, {interest: 'Reading', id: uniqid()}
+    // {interest: 'Coding', id: uniqid()}, {interest: 'Reading', id: uniqid()}
   ])
+  const [interest, setInterest] = useState('')
+
+  const handleInterest = (e) => {
+    setInterest(e.target.value)
+  }
+  const onInterestSubmit = (e) => {
+    e.preventDefault()
+    setInterests([...interests, {id: uniqid(), interest: interest}])
+    setInterest('')
+    const interestDiv = document.getElementById('interestForm')
+    interestDiv.style.display = 'none'
+  }
 
   const [degree, setDegree] = useState('')
   const [city, setCity] = useState('')
@@ -88,6 +100,15 @@ const RouteSwitch = () => {
     onEducationDelete(id)
   }
 
+  const onInterestDelete = (id) => {
+    setInterests(interests.filter((interest) => interest.id !== id ))
+  }
+  const onInterestEdit = (id) => {
+    const interest = interests.find((interest) => interest.id === id)
+    setInterest(interest.interest)
+    onInterestDelete(id)
+  }
+
   return(
     <BrowserRouter>
       <Nav />
@@ -124,7 +145,12 @@ const RouteSwitch = () => {
                 setEndDate={setEndDate}
                 setDescription={setDescription}
                 interests={interests}
-                setInterests={setInterests}
+                interest={interest}
+                setInterest={setInterest}
+                handleInterest={handleInterest}
+                onInterestSubmit={onInterestSubmit}
+                onInterestDelete={onInterestDelete}
+                onInterestEdit={onInterestEdit}
                 />}
               />
       </Routes>

@@ -3,13 +3,13 @@ import ExperienceCard from './ExperienceCard'
 
 const Experiences = (props) => {
 
-  const toggleForm = () => {
-    const educationDiv = document.getElementById('educationForm')
-    const toggleForm = educationDiv.style.display === 'block' ? 'none' : 'block'
-    educationDiv.style.display = toggleForm
+  const toggleForm = (id) => {
+    const formContainer = document.getElementById(id)
+    const toggleStyle = formContainer.style.display === 'block' ? 'none' : 'block'
+    formContainer.style.display = toggleStyle
   }
 
-  const educationList = props.education.map((edu) => 
+  const educationList = props.education.map((edu) =>
     <li key={edu.id}>
      <hr />
      <div className={styles.inputDuo}>
@@ -19,7 +19,7 @@ const Experiences = (props) => {
        </div>
        <div className={styles.editList}>
          <button onClick={() =>{props.onEducationDelete(edu.id)}}>🗑️</button>
-         <button onClick={() => {props.onEducationEdit(edu.id); toggleForm()}}>✏️</button>
+         <button onClick={() => {props.onEducationEdit(edu.id); toggleForm('educationForm')}}>✏️</button>
        </div>
      </div>
     </li>
@@ -34,7 +34,7 @@ const Experiences = (props) => {
         </div>
         <div className={styles.editList}>
           <button onClick={() =>{props.onInterestDelete(interest.id)}}>🗑️</button>
-          <button onClick={() => {props.onInterestEdit(interest.id); toggleForm()}}>✏️</button>
+          <button onClick={() => {props.onInterestEdit(interest.id); toggleForm('interestForm')}}>✏️</button>
         </div>
       </div>
     </li>
@@ -104,11 +104,32 @@ const Experiences = (props) => {
                 props.setStartDate('')
                 props.setEndDate('')
                 props.setDescription('')
-                props.toggleForm()
+                toggleForm('educationForm')
               }}>🗑️ Delete</button>
               <button type='submit'>💾️ Save</button>
             </div>
           </form>
+
+    const interestsForm = <form onSubmit={props.onInterestSubmit}>
+    
+      <div className={styles.inputGroup}>
+          <label>Hobby</label>
+          <input type='text'
+                 placeholder='e.g. Hiking'
+                 value={props.interest}
+                 onChange={props.handleInterest}
+                 required
+          />
+      </div>
+    
+      <div className={styles.btnGroup}>
+        <button className={styles.first} type='button' onClick={() => {
+          props.setInterest('')
+          toggleForm('interestForm')
+        }}>🗑️ Delete</button>
+        <button type='submit'>💾️ Save</button>
+      </div>
+    </form>
 
   return(
     <div className='App'>
@@ -141,8 +162,9 @@ const Experiences = (props) => {
         list={educationList}
         experienceName='education'
         cardBody='educationCardBody'
-        toggleForm={toggleForm}
+        // toggleForm={toggleForm}
         divId='educationCard'
+        formId='educationForm'
         form={educationForm}
       >
         
@@ -158,9 +180,12 @@ const Experiences = (props) => {
         education={props.education}
         count={props.interests.length}
         list={interestsList}
-        toggleForm={toggleForm}
+        // toggleForm={toggleForm}
         divId='interestsCard'
         experienceName='interest'
+        formId='interestForm'
+        form={interestsForm}
+        
       >
 
       </ExperienceCard>
